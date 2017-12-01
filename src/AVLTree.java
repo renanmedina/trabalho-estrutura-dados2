@@ -1,20 +1,31 @@
-package models;
-
-import models.AVLNode;
-
 public class AVLTree<T> {	
+	public AVLNode<T> root = null;
 	
-	public int find(AVLNode<T> sub, T el, int found) {
+	public boolean find(T el) {
+		int searched = this.search(this.root, el, 0);
+		return searched == 1 ? true : false;
+	}
+	
+	public int search(AVLNode<T> sub, T el, int found) {
 		if( sub != null && found == 0){
-			if(sub.element.toString().compareTo(el.toString()) == 0)
+			if(sub.element.toString().equals(el.toString()))
 				found = 1;
-			else if (sub.element.toString().compareTo(el.toString()) < 0)
-				found = this.find(sub.left_tree, el, found);
+			else if (sub.element.toString().compareTo(el.toString()) > 0)
+				found = this.search(sub.left_tree, el, found);
 			else
-				found = this.find(sub.right_tree, el, found);
+				found = this.search(sub.right_tree, el, found);
+				 
 		}
 
 		return found;
+	}
+	
+	public boolean isEmpty() {
+		return this.root == null;
+	}
+	
+	public void add(T el){
+		this.root = this.insert(this.root, el);
 	}
 	
 	public AVLNode<T> insert(AVLNode<T> sub, T element){
@@ -28,7 +39,7 @@ public class AVLTree<T> {
 			new_tree.right_tree = null;
 			sub = new_tree;
 		}
-		else if(element.toString().compareTo(sub.left_tree.element.toString()) < 0){
+		else if(sub.left_tree != null && element.toString().compareTo(sub.left_tree.element.toString()) < 0){
 			sub.left_tree = this.insert(sub.left_tree, element);
 			if (sub.left_tree.right_h > sub.left_tree.left_h)
 				sub.left_h = sub.left_tree.right_h + 1;
@@ -123,5 +134,13 @@ public class AVLTree<T> {
 
 		return sub;
 
+	}
+	
+	public void displayPreOrdem(AVLNode<T> el){
+		if (el != null){
+			System.out.println(el.element.toString()+" ");
+			this.displayPreOrdem(el.left_tree);
+			this.displayPreOrdem(el.right_tree);
+		}
 	}
 }

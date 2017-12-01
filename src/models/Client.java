@@ -8,7 +8,7 @@ public class Client {
 	private String address;
 	private String access;
 	
-	Client(int cod, String nm, String ph, String addr){
+	public Client(int cod, String nm, String ph, String addr){
 		this.cod_cli = cod;
 		this.name = nm;
 		this.phone = ph;
@@ -46,5 +46,14 @@ public class Client {
 	
 	public String toString() {
 		return Integer.toString(this.getClientCode());
+	}
+	
+	public String outputString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Cliente #".concat(this.toString()));
+		sb.append("\nNome: ".concat(this.getName()));
+		sb.append("\nTelefone: ".concat(this.getPhoneNumber()));
+		sb.append("\nEndereço: ".concat(this.getAddress()));
+		return sb.toString();
 	}
 }
