@@ -30,7 +30,7 @@ public class Account {
 		return Integer.toString(this.acc_number);
 	}
 	
-	public String outputString() {
+	public String getOutputString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Número da conta:  #".concat(Integer.toString(this.getAccNumber())));
 		sb.append("\nCódigo de cliente : #".concat(Integer.toString(this.getClientID())));

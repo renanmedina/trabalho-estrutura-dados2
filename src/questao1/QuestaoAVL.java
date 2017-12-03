@@ -90,7 +90,7 @@ public class QuestaoAVL {
 	static void listClients(AVLNode<Client> e) {
 		if (e != null){
 			Client cli = (Client) e.element; // casting
-			JOptionPane.showMessageDialog(null, cli.outputString());
+			JOptionPane.showMessageDialog(null, cli.getOutputString());
 			listClients(e.left_tree);
 			listClients(e.right_tree);
 		}
@@ -99,7 +99,7 @@ public class QuestaoAVL {
 	static void listAccounts(AVLNode<Account> e) {
 		if (e != null){
 			Account acc = (Account) e.element; // casting
-			JOptionPane.showMessageDialog(null, acc.outputString());
+			JOptionPane.showMessageDialog(null, acc.getOutputString());
 			listAccounts(e.left_tree);
 			listAccounts(e.right_tree);
 		}
@@ -113,7 +113,7 @@ public class QuestaoAVL {
 			while(aux != null) {
 				Account ac = (Account) aux.element;
 				if(ac.getClientID() == cod) {
-					JOptionPane.showMessageDialog(null, ac.outputString());
+					JOptionPane.showMessageDialog(null, ac.getOutputString());
 					find_atleast_one = true;
 				}
 				if(aux.left_tree != null)

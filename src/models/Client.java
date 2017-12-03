@@ -33,7 +33,7 @@ public class Client {
 		return Integer.toString(this.getClientCode());
 	}
 	
-	public String outputString() {
+	public String getOutputString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Cliente #".concat(this.toString()));
 		sb.append("\nNome: ".concat(this.getName()));
