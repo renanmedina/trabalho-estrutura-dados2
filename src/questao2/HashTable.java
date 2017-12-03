@@ -19,6 +19,7 @@ public class HashTable<T> {
 		int index = this.hashing(el);
 		hel.next = this.table[index];
 		this.table[index] = hel;
+		this.items++;
 	}
 	
 	public void remove(T el) {
@@ -53,6 +54,7 @@ public class HashTable<T> {
 				if (this.table[i].key.equals(el)) {
 					this.table[i] = this.table[i].next;
 					removed = true;
+					this.items--;
 				}
 				else{
 					auxil = this.table[i].next;
@@ -61,6 +63,7 @@ public class HashTable<T> {
 						previous = auxil;
 						auxil = auxil.next;
 						removed = true;
+						this.items--;
 					}
 
 					if (auxil != null)
@@ -73,11 +76,11 @@ public class HashTable<T> {
 	}
 	
 	
-	public HashElement[] getTable(){
+	public HashElement<T>[] getTable(){
 		return this.table;
 	}
 	
-	public HashElement getAtIndex(int i) {
+	public HashElement<T> getAtIndex(int i) {
 		return this.table[i];
 	}
 	
@@ -90,7 +93,7 @@ public class HashTable<T> {
 	}
 	
 	public boolean isEmpty() {
-		return false;
+		return this.items > 0;
 	}
 	
 }
