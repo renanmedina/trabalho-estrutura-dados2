@@ -1,3 +1,4 @@
+package questao1;
 public class AVLNode<T>{
 	public int left_h, right_h = 0;
 	public T element = null;

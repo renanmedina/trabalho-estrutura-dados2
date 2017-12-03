@@ -1,3 +1,5 @@
+package questao1;
+
 public class AVLTree<T> {	
 	public AVLNode<T> root = null;
 	

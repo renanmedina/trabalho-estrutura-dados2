@@ -1,9 +1,10 @@
+package questao1;
 import models.Client;
 import models.Account;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class MainProgram {
+public class QuestaoAVL {
 	
 	static AVLTree<Client> clients_tree = new AVLTree<Client>();
 	static AVLTree<Account> accounts_tree = new AVLTree<Account>();
